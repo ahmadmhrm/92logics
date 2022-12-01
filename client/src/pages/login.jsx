@@ -29,11 +29,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-
     if (isAuthenticated) {
       history.push("/profile");
     }
