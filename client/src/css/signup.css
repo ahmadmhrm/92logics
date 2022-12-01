@@ -1,0 +1,254 @@
+.signup {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 45, 60);
+}
+
+.signup-form {
+  width: 30%;
+  height: auto;
+  padding: 30px 20px 50px 20px;
+  margin: auto;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+
+.signup-title {
+  padding: 0px 20px;
+  height: 35px;
+  font-size: 30px;
+  text-align: center;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "poppins", sans-serif;
+}
+
+.signup-fields {
+  display: table;
+  width: 100%;
+  padding: 30px 0px;
+}
+
+.signup-group {
+  width: 90%;
+  float: left;
+  padding: 0px 20px;
+  margin: 8px 0px;
+  border-radius: 100px;
+  background: #e3f0fd;
+}
+
+.signup-fields input {
+  width: 100%;
+  font-family: "poppins", sans-serif;
+  padding: 15px 0px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+}
+
+.signup-submit-button {
+  width: 96%;
+  height: 60px;
+  margin: 0px 5px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  background: #f04f54;
+  transition: 0.5s;
+  font-family: "poppins", sans-serif;
+}
+
+.signup-submit-button:hover {
+  background: #e96166;
+  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+
+/* Account Suggestion */
+.account__suggestion {
+  padding: 10px;
+}
+
+.account__suggestion p {
+  font-family: "poppins", sans-serif;
+  font-size: 15px;
+  color: #333;
+}
+
+.sugg__link {
+  color: #4ca5ff;
+  text-decoration: none;
+}
+
+/* forgot password */
+.forgot_text {
+  font-family: "poppins", sans-serif;
+  font-size: 15px;
+  color: #4ca5ff;
+  margin-left: 270px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* avatar */
+
+.sign_up_Image {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.sign_up_Image img {
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.sign_up_Image > input {
+  display: flex;
+  padding: 0%;
+}
+
+.sign_up_Image > input::file-selector-button {
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  background-color: #e3f0fd;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 95px;
+  font-family: "poppins", sans-serif;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 320px) {
+  .signup-form {
+    width: 80%;
+  }
+
+  .signup-group {
+    width: 90%;
+    padding: 0px 20px;
+    margin: 8px -8px;
+    border-radius: 100px;
+    background: #e3f0fd;
+  }
+
+  .signup-submit-button {
+    width: 100%;
+    height: 55px;
+    margin: 0px -5px;
+  }
+
+  /* Account Suggestion */
+
+  .account__suggestion p {
+    font-size: 14px;
+  }
+
+  /* forgot password */
+  .forgot_text {
+    margin-left: 110px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .signup-form {
+    width: 80%;
+  }
+
+  .signup-group {
+    width: 90%;
+    padding: 0px 20px;
+    margin: 8px -8px;
+    border-radius: 100px;
+    background: #e3f0fd;
+  }
+
+  .signup-submit-button {
+    width: 100%;
+    height: 55px;
+    margin: 0px -5px;
+  }
+  /* Account Suggestion */
+
+  .account__suggestion p {
+    font-size: 14px;
+  }
+
+  /* forgot password */
+  .forgot_text {
+    margin-left: 110px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .signup-form {
+    width: 80%;
+  }
+
+  .signup-group {
+    width: 90%;
+    padding: 0px 20px;
+    margin: 8px -8px;
+    border-radius: 100px;
+    background: #e3f0fd;
+  }
+
+  .signup-submit-button {
+    width: 100%;
+    height: 55px;
+    margin: 0px -5px;
+  }
+  /* Account Suggestion */
+
+  .account__suggestion p {
+    font-size: 14px;
+  }
+
+  /* forgot password */
+  .forgot_text {
+    margin-left: 110px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .signup-form {
+    width: 80%;
+  }
+
+  .signup-group {
+    width: 93%;
+    padding: 0px 20px;
+    margin: 8px -8px;
+    border-radius: 100px;
+    background: #e3f0fd;
+  }
+
+  .signup-submit-button {
+    width: 100%;
+    height: 55px;
+    margin: 0px -5px;
+  }
+  /* Account Suggestion */
+
+  .account__suggestion p {
+    font-size: 14px;
+  }
+
+  /* forgot password */
+  .forgot_text {
+    margin-left: 110px;
+  }
+}

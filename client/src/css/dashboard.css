@@ -1,0 +1,151 @@
+.dashboard {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+}
+
+.admin_sidebar {
+  width: 18.7%;
+}
+
+.dashboardContainer {
+  background-color: rgb(255, 255, 255);
+  padding: 3rem 0;
+  width: 83%;
+}
+
+.dashboardContainer > h1 {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font: bold 2rem "Poppins";
+  text-align: center;
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.dashboardSummary {
+  margin: 2rem 0;
+}
+
+.dashboardSummary > div {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+}
+
+.dashboardSummary > div > p {
+  background-color: rgba(70, 117, 218, 0.932);
+  color: white;
+  font: 400 1.5rem "Poppins";
+  text-align: center;
+  padding: 0.6rem 0;
+  width: 100%;
+  margin: auto;
+}
+
+.dashboardSummaryBox2 > a {
+  color: #fff;
+  font: 300 1.5rem "Poppins";
+  text-align: center;
+  background-color: #03a5db;
+  text-decoration: none;
+  padding: 1.5rem;
+  width: 10vmax;
+  height: 10vmax;
+  margin: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboardSummaryBox2 > a:first-child {
+  background-color: #21ae55;
+  color: rgb(255, 255, 255);
+}
+
+.dashboardSummaryBox2 > a:last-child {
+  background-color: #f04f54;
+  color: rgb(255, 255, 255);
+}
+
+.lineChart {
+  width: 80%;
+  margin: auto;
+  padding: 0 0 50px 0;
+}
+
+.doughnutChart {
+  width: 30vmax;
+  margin: auto;
+  padding: 0 0 50px 0;
+}
+
+.menu_button {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard {
+    width: 100%;
+    height: 100vh;
+    display: block;
+    overflow-y: auto;
+  }
+
+  .admin_sidebar {
+    width: 100%;
+  }
+
+  .dashboardContainer {
+    background-color: rgb(255, 255, 255);
+    padding: 3rem 0;
+    width: 100%;
+  }
+  .dashboardSummary > div > p {
+    margin: 0;
+  }
+
+  .dashboardSummaryBox2 > a {
+    padding: 0.5rem;
+    margin: 1rem;
+    font: 300 0.8rem "Poppins";
+    width: 9vmax;
+    height: 9vmax;
+  }
+
+  .dashboardContainer > h1 {
+    margin-top: 30px;
+  }
+
+  .menu_button {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu_button i {
+    background-color: #21ae55;
+    border-radius: 50%;
+    padding: 16px;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .menu_button span {
+    font-size: 18px;
+    font-family: "Poppins";
+  }
+}

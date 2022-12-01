@@ -1,0 +1,91 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid rgb(201, 196, 196);
+  padding: 4rem 0;
+}
+
+.admin_logo {
+  font-size: 40px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  color: #03a5db;
+  text-decoration: none;
+  font-family: "Kaushan Script", cursive;
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.493);
+  font: 500 1rem "Poppins";
+  padding: 1.5rem 3rem;
+  transition: all 0.5s;
+}
+
+.sidebar a:hover {
+  color: #03a5db;
+}
+
+.sidebar a > P {
+  display: flex;
+  align-items: center;
+}
+.sidebar a > p > svg {
+  margin-right: 0.5rem;
+}
+
+.MuiTypography-root {
+  background-color: #fff !important;
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    visibility: hidden;
+    opacity: 0;
+    transition: 850ms;
+    left: -100%;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    z-index: 10;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    visibility: visible;
+    transition: 320ms;
+    opacity: 1;
+    left: 0;
+  }
+  .admin_logo {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .sidebar {
+    width: 220px;
+    background-color: rgb(255, 255, 255);
+  }
+  .admin_logo {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1300px) {
+  .sidebar {
+    width: 210px;
+  }
+  .admin_logo {
+    margin-right: 0;
+  }
+}

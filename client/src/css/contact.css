@@ -1,0 +1,552 @@
+.contact {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 45, 60);
+}
+
+.box-wrapper {
+  width: 85%;
+  margin: auto;
+  border-radius: 3px;
+  font-family: "poppins", sans-serif;
+  display: flex;
+  padding: 120px 0 0 0;
+}
+
+.info-wrap {
+  width: 30%;
+  padding: 40px;
+  float: left;
+  display: block;
+  background-color: rgba(3, 165, 219, 1);
+  color: #fff;
+  border-radius: 2px 0px 0px 2px;
+}
+
+.info-title {
+  text-align: left;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.info-sub-title {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 17px;
+  letter-spacing: 0.5px;
+  line-height: 26px;
+}
+
+.info-details {
+  list-style: none;
+  margin: 60px 0px;
+}
+
+.info-details li {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.info-details li i {
+  background: #f04f54;
+  padding: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.info-details li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.info-details li a:hover {
+  color: #f04f54;
+}
+
+.social-icons {
+  list-style: none;
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.social-icons li {
+  display: inline-block;
+}
+
+.social-icons li i {
+  background: #f04f54;
+  color: #fff;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 50%;
+  margin: 0px 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.social-icons li i:hover {
+  background: #fff;
+  color: rgba(3, 165, 219, 1);
+}
+
+/* left side */
+.form-wrap {
+  width: 60%;
+  float: right;
+  padding: 40px 25px 35px 25px;
+  background: #fff;
+  border-radius: 0px 2px 2px 0px;
+}
+
+.form-title {
+  height: 37px;
+  text-align: left;
+  margin-left: 23px;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.form-fields {
+  display: table;
+  width: 100%;
+  padding: 15px 5px 5px 5px;
+}
+
+.form-fields input,
+.form-fields textarea {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+  color: #555;
+  width: 100%;
+  padding: 15px 0px;
+  font-family: "poppins", sans-serif;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-fields textarea {
+  height: 150px;
+  resize: none;
+  font-family: "poppins", sans-serif;
+}
+
+.form-group {
+  width: 41%;
+  float: left;
+  padding: 0px 20px;
+  margin: 8px 10px;
+  border-radius: 100px;
+  background: #e3f0fd;
+}
+
+.form-fields .form-group:last-child {
+  width: 90.5%;
+  border-radius: 4px;
+}
+
+.submit-button {
+  width: 96%;
+  height: 60px;
+  margin: 0px 12px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  background: #f04f54;
+  transition: 0.5s;
+  font-family: "poppins", sans-serif;
+}
+
+.submit-button:hover {
+  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+
+/* Responsive css */
+
+@media only screen and (max-width: 320px) {
+  .box-wrapper {
+    width: 100%;
+    height: 83vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .info-wrap {
+    width: 100%;
+  }
+
+  .info-title {
+    font-size: 25px;
+    margin-left: -10px;
+  }
+
+  .info-sub-title {
+    width: 270px;
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  .info-details li {
+    margin-left: -15px;
+    font-size: 18px;
+  }
+  .info-details li a {
+    font-size: 15px;
+  }
+  .social-icons {
+    margin-left: 30px;
+    display: inline-block;
+  }
+
+  .social-icons li i {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .form-wrap {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+  .form-title {
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 100px;
+    margin-left: 30px;
+  }
+
+  .form-fields {
+    display: table;
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+  }
+
+  .form-fields input,
+  .form-fields textarea {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .form-fields textarea {
+    height: 100px;
+    font-family: "poppins", sans-serif;
+  }
+
+  .form-group {
+    width: 20%;
+    float: left;
+    padding: 0px 20px;
+  }
+
+  .form-fields .form-group:last-child {
+    width: 78%;
+  }
+
+  .form-group {
+    width: 78%;
+    padding: auto;
+  }
+
+  .submit-button {
+    width: 90%;
+    height: 50px;
+    margin: 50px 15px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .box-wrapper {
+    width: 100%;
+    height: 83vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .info-wrap {
+    width: 100%;
+  }
+
+  .info-title {
+    font-size: 25px;
+    margin-left: -10px;
+  }
+
+  .info-sub-title {
+    width: 270px;
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  .info-details li {
+    margin-left: -15px;
+    font-size: 18px;
+  }
+  .info-details li a {
+    font-size: 15px;
+  }
+  .social-icons {
+    margin-left: 30px;
+    display: inline-block;
+  }
+
+  .social-icons li i {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .form-wrap {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+  .form-title {
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 100px;
+    margin-left: 30px;
+  }
+
+  .form-fields {
+    display: table;
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+  }
+
+  .form-fields input,
+  .form-fields textarea {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .form-fields textarea {
+    height: 100px;
+    font-family: "poppins", sans-serif;
+  }
+
+  .form-group {
+    width: 20%;
+    float: left;
+    padding: 0px 20px;
+  }
+
+  .form-fields .form-group:last-child {
+    width: 78%;
+  }
+
+  .form-group {
+    width: 78%;
+    padding: auto;
+  }
+
+  .submit-button {
+    width: 90%;
+    height: 50px;
+    margin: 50px 15px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .box-wrapper {
+    width: 100%;
+    height: 83vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .info-wrap {
+    width: 100%;
+  }
+
+  .info-title {
+    font-size: 25px;
+    margin-left: -10px;
+  }
+
+  .info-sub-title {
+    width: 270px;
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  .info-details li {
+    margin-left: -15px;
+    font-size: 18px;
+  }
+  .info-details li a {
+    font-size: 15px;
+  }
+  .social-icons {
+    margin-left: 30px;
+    display: inline-block;
+  }
+
+  .social-icons li i {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .form-wrap {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+  .form-title {
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 100px;
+    margin-left: 30px;
+  }
+
+  .form-fields {
+    display: table;
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+  }
+
+  .form-fields input,
+  .form-fields textarea {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .form-fields textarea {
+    height: 100px;
+    font-family: "poppins", sans-serif;
+  }
+
+  .form-group {
+    width: 20%;
+    float: left;
+    padding: 0px 20px;
+  }
+
+  .form-fields .form-group:last-child {
+    width: 78%;
+  }
+
+  .form-group {
+    width: 78%;
+    padding: auto;
+  }
+
+  .submit-button {
+    width: 90%;
+    height: 50px;
+    margin: 50px 15px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .box-wrapper {
+    width: 100%;
+    height: 83vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+  }
+
+  .info-wrap {
+    width: 100%;
+  }
+
+  .info-title {
+    font-size: 25px;
+    margin-left: -10px;
+  }
+
+  .info-sub-title {
+    width: 270px;
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  .info-details li {
+    margin-left: -15px;
+    font-size: 18px;
+  }
+  .info-details li a {
+    font-size: 15px;
+  }
+  .social-icons {
+    margin-left: 30px;
+    display: inline-block;
+  }
+
+  .social-icons li i {
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .form-wrap {
+    width: 100%;
+    padding: 20px 0px;
+  }
+
+  .form-title {
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 100px;
+    margin-left: 30px;
+  }
+
+  .form-fields {
+    display: table;
+    width: 100%;
+    padding: 15px 5px 5px 5px;
+  }
+
+  .form-fields input,
+  .form-fields textarea {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .form-fields textarea {
+    height: 100px;
+    font-family: "poppins", sans-serif;
+  }
+
+  .form-group {
+    width: 20%;
+    float: left;
+    padding: 0px 20px;
+  }
+
+  .form-fields .form-group:last-child {
+    width: 78%;
+  }
+
+  .form-group {
+    width: 78%;
+    padding: auto;
+  }
+
+  .submit-button {
+    width: 90%;
+    height: 50px;
+    margin: 50px 15px;
+  }
+}

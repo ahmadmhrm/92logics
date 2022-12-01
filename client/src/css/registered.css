@@ -1,0 +1,30 @@
+.registered {
+  background: url("../../public/assets/call-to.jpg");
+  width: 100%;
+  height: 50vh;
+  margin: 50px 0;
+}
+
+.registered__content {
+  text-align: center;
+  color: #fff;
+  font-family: "Poppins";
+  font-size: 30px;
+  font-weight: 500;
+  padding: 130px 0;
+  line-height: 40px;
+}
+
+@media (max-width: 600px) {
+  .registered__content {
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    font-family: "Poppins";
+    font-size: 22px;
+    font-weight: 400;
+    padding: 130px 0;
+    margin: auto;
+    line-height: 0px;
+  }
+}

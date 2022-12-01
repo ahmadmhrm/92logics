@@ -1,0 +1,81 @@
+.projectsList {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+}
+
+.admin_projects_sidebar {
+  width: 18.7%;
+}
+
+.productListContainer {
+  background-color: rgb(255, 255, 255);
+  padding: 3rem 0px;
+  width: 80%;
+}
+
+.productListHeading {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font: bold 2rem "Poppins";
+  text-align: center;
+  width: 50%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.productListTable div {
+  font: 400 1vmax "Poppins";
+  color: rgba(0, 0, 0, 0.678);
+  border: none !important;
+}
+
+.productListTable a,
+.productListTable button {
+  color: rgba(0, 0, 0, 0.527);
+  transition: all 0.5s;
+}
+
+.productListTable a:hover {
+  color: #03a5db;
+}
+
+.MuiDataGrid-columnHeader div {
+  color: #fff;
+}
+
+.MuiDataGrid-columnHeader {
+  height: 60px;
+  background-color: #03a5db;
+}
+
+.MuiDataGrid-columnHeaderTitle:last-child {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .projectsList {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+  }
+
+  .productListHeading {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .productListContainer {
+    padding: 5rem 0px;
+    width: 93%;
+    margin-left: -52px;
+  }
+
+  .productListTable div {
+    font-size: 11px;
+  }
+}

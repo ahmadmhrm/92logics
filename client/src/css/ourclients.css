@@ -1,0 +1,204 @@
+.our-client {
+  padding: 70px 0px 40px 0px;
+  background: #00293d;
+}
+
+.our-client h2 {
+  font-size: 65px;
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 10px;
+}
+
+.client-boxes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 80px;
+  padding: 50px 0px 0px 0;
+}
+
+.client-boxe {
+  width: 27%;
+  margin-bottom: 70px;
+  margin-right: 50px;
+}
+
+.client-content {
+  position: relative;
+  padding: 30px 15px 20px 15px;
+  color: #fff;
+  background: #6bb325;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  min-height: 100px;
+}
+
+.client-content p {
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 300;
+  font-family: "poppins", sans-serif;
+}
+
+.client-content .qoutes_img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  top: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #6bb325;
+  border: 3px solid #00293d;
+}
+
+.qoute_img {
+  width: 35px;
+  filter: invert(100%) sepia(0%) saturate(7493%) hue-rotate(74deg)
+    brightness(99%) contrast(105%);
+}
+
+.client-chat {
+  width: 100%;
+}
+
+.client-content::before {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 70px;
+  width: 0;
+  height: 0;
+  border-top: 30px solid #6bb325;
+  border-right: 30px solid transparent;
+}
+
+.client-img {
+  display: flex;
+  align-items: center;
+}
+
+.client-img img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.client-img h1 {
+  color: #fff;
+  font-size: 20px;
+  margin-left: 25px;
+  font-weight: 400;
+  font-family: "poppins", sans-serif;
+}
+
+.client-img h1 p {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 300;
+  font-family: "poppins", sans-serif;
+}
+
+/* social icons */
+
+.fot-social {
+  text-align: center;
+}
+
+.fot-social ul {
+  list-style: none;
+  display: inline-flex;
+}
+
+.fot-social ul li a img {
+  filter: invert(13%) sepia(28%) saturate(3197%) hue-rotate(169deg)
+    brightness(93%) contrast(103%);
+}
+
+.fot-social ul li a {
+  background: #d2d4d5;
+  margin: 0px 6px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 35px;
+  border-radius: 50px;
+  transition: 0.3s linear;
+  font-family: "poppins", sans-serif;
+}
+
+.fot-social ul li a:hover {
+  background: #fff;
+}
+
+.fot-social .more-client {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 110px;
+  font-size: 23px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 0px;
+  border: 2px solid #fff;
+  width: 330px;
+  border-radius: 50px;
+  transition: 0.3s linear;
+  font-family: "Raleway", sans-serif;
+}
+
+.fot-social .more-client:hover {
+  color: #00293d;
+  background: #fff;
+}
+
+.fot_icon {
+  width: 20px;
+}
+
+.fot-social p {
+  font-size: 17px;
+  font-weight: 400;
+  color: rgb(161, 161, 161);
+  margin-top: 63px;
+  font-family: "poppins", sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .client-boxes {
+    width: 100%;
+    display: block;
+    flex-wrap: wrap;
+    margin: 50px 15px;
+    padding: 50px 0px 0px 0;
+  }
+
+  .our-client h2 {
+    font-size: 50px;
+  }
+
+  .client-boxe {
+    width: 90%;
+    margin-bottom: 70px;
+    margin-right: 50px;
+  }
+  .fot-social ul li a {
+    width: 50px;
+    height: 50px;
+  }
+  .fot-social p {
+    font-size: 18px;
+    width: 80%;
+    margin: 30px auto;
+  }
+}
