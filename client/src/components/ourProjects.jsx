@@ -4,13 +4,11 @@ import Project from "./project";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getProjects } from "../actions/projectAction";
 import Loader from "./loader";
-import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 
 const categories = ["Web App", "Mobile App", "Database"];
 
 const OurProjects = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +23,12 @@ const OurProjects = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
     dispatch(getProjects(currentPage, category));

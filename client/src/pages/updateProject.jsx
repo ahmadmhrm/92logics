@@ -6,7 +6,6 @@ import {
   getProjectDetails,
   updateProject,
 } from "../actions/projectAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
@@ -20,7 +19,6 @@ import Navbar from "../components/navbar";
 
 const UpdateProject = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, project } = useSelector((state) => state.projectDetails);
@@ -53,23 +51,37 @@ const UpdateProject = ({ match }) => {
     }
 
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Project Updated Successfully");
+      swal({
+        title: "Product Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/admin/projects");
       dispatch({ type: UPDATE_PROJECT_RESET });
     }
   }, [
     dispatch,
-    alert,
+    swal,
     error,
     history,
     isUpdated,

@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Sidebar from "../components/sidebar";
@@ -16,7 +15,6 @@ import {
 
 const UpdateTechContent = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, contentDetail } = useSelector(
@@ -24,7 +22,12 @@ const UpdateTechContent = ({ match }) => {
   );
 
   if (error) {
-    alert.error(error);
+    swal({
+      title: "Error Found!",
+      text: error,
+      icon: "error",
+      button: "Okay",
+    });
     dispatch(clearErrors());
   }
 
@@ -45,12 +48,21 @@ const UpdateTechContent = ({ match }) => {
       setTechContent(contentDetail.techContent);
     }
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Content Update Successfully");
+      swal({
+        title: "Service Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: UPDATE_TECH_CONTENT_RESET });
     }

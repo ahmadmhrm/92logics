@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getWebDetails, updateWeb } from "../actions/webAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -14,7 +13,6 @@ import Navbar from "../components/navbar";
 
 const UpdateWeb = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, webDetail } = useSelector((state) => state.webDetails);
@@ -43,30 +41,35 @@ const UpdateWeb = ({ match }) => {
     }
 
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Service Updated Successfully");
+      swal({
+        title: "Service Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/website-design-and-development");
       dispatch({ type: UPDATE_WEB_RESET });
     }
-  }, [
-    dispatch,
-    alert,
-    error,
-    history,
-    isUpdated,
-    updateError,
-    webId,
-    webDetail,
-  ]);
+  }, [dispatch, error, history, isUpdated, updateError, webId, webDetail]);
 
   const updateWebSubmitHandler = (e) => {
     e.preventDefault();

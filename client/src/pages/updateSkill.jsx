@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -18,13 +17,17 @@ import {
 
 const UpdateSkill = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, skillDetail } = useSelector((state) => state.skillDetails);
 
   if (error) {
-    alert.error(error);
+    swal({
+      title: "Error Found!",
+      text: error,
+      icon: "error",
+      button: "Okay",
+    });
     dispatch(clearErrors());
   }
 
@@ -47,12 +50,21 @@ const UpdateSkill = ({ match }) => {
       setPercent(skillDetail.percent);
     }
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Skill Update Successfully");
+      swal({
+        title: "Skill Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: UPDATE_SKILL_RESET });
     }

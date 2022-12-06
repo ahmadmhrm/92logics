@@ -6,7 +6,6 @@ import {
   getReviewDetails,
   updateReview,
 } from "../actions/reviewAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -19,7 +18,6 @@ import Navbar from "../components/navbar";
 
 const UpdateReview = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, review } = useSelector((state) => state.reviewDetails);
@@ -48,18 +46,32 @@ const UpdateReview = ({ match }) => {
     }
 
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (reviewError) {
-      alert.error(reviewError);
+      swal({
+        title: "Error Found!",
+        text: reviewError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Review Updated Successfully");
-      history.push("");
+      swal({
+        title: "Review Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
+      history.push("/");
       dispatch({ type: UPDATE_REVIEW_RESET });
     }
   }, [

@@ -6,13 +6,11 @@ import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login } from "../actions/userAction";
-import { useAlert } from "react-alert";
 import Loader from "../components/loader";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, loading, isAuthenticated } = useSelector(
@@ -29,10 +27,26 @@ const Login = () => {
   };
 
   useEffect(() => {
+    if (error) {
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
+      dispatch(clearErrors());
+    }
+
     if (isAuthenticated) {
+      swal({
+        title: "User Login Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
+
       history.push("/profile");
     }
-  }, [dispatch, error, alert, history, isAuthenticated]);
+  }, [dispatch, error, history, isAuthenticated]);
 
   return (
     <>

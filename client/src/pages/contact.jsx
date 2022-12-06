@@ -5,13 +5,11 @@ import Navbar from "../components/navbar";
 import { useSelector, useDispatch } from "react-redux";
 import { createMessage, clearErrors } from "../actions/contactAction";
 import { NEW_MESSAGE_RESET } from "../constants/contactConstant";
-import { useAlert } from "react-alert";
 import { useHistory } from "react-router-dom";
 import Loader from "../components/loader";
 
 const Contact = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector(
@@ -39,16 +37,25 @@ const Contact = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Message Send Successfully");
-      history.push("");
+      swal({
+        title: "Message Send Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
+      history.push("/");
       dispatch({ type: NEW_MESSAGE_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, error, history, success]);
 
   return (
     <>

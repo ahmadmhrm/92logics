@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -13,13 +12,17 @@ import { updateFaq, clearErrors, getFaqDetails } from "../actions/faqAction";
 
 const UpdateFaq = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, faqDetail } = useSelector((state) => state.faqDetails);
 
   if (error) {
-    alert.error(error);
+    swal({
+      title: "Error Found!",
+      text: error,
+      icon: "error",
+      button: "Okay",
+    });
     dispatch(clearErrors());
   }
 
@@ -43,12 +46,21 @@ const UpdateFaq = ({ match }) => {
     }
 
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Faq Update Successfully");
+      swal({
+        title: "Faq's Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: UPDATE_FAQ_RESET });
     }

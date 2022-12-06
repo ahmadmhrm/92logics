@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -14,7 +13,6 @@ import { clearErrors, skillContent } from "../actions/skillAction";
 
 const NewSkill = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newSkill);
@@ -24,16 +22,25 @@ const NewSkill = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Skill Created Successfully");
+      swal({
+        title: "Skill Created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: CREATE_SKILL_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, error, history, success]);
 
   const skillSubmitHandler = (e) => {
     e.preventDefault();

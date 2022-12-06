@@ -5,13 +5,11 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { loadUser } from "../actions/userAction";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useAlert } from "react-alert";
 import { DELETE_REVIEW_RESET } from "../constants/reviewConstant";
 import { deleteReview } from "../actions/reviewAction";
 
 const Client = ({ review }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const { user } = useSelector((state) => state.user);
 
@@ -19,12 +17,21 @@ const Client = ({ review }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Review Deleted Successfully");
+      swal({
+        title: "Review Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_REVIEW_RESET });
     }
 

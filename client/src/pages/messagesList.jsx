@@ -8,7 +8,6 @@ import {
   deleteMessage,
 } from "../actions/contactAction";
 import { useHistory } from "react-router-dom";
-import { useAlert } from "react-alert";
 import { IconButton } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -19,7 +18,6 @@ import { DELETE_MESSAGE_RESET } from "../constants/contactConstant";
 const MessagesList = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const alert = useAlert();
   const [sidebar, setSidebar] = useState(false);
 
   const { error, messages } = useSelector((state) => state.messages);
@@ -34,26 +32,38 @@ const MessagesList = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      swal({
+        title: "Error Found!",
+        text: deleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Message Deleted Successfully");
+      swal({
+        title: "Message Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_MESSAGE_RESET });
     }
 
     dispatch(getMessages());
-  }, [dispatch, alert, error, history, deleteError, isDeleted]);
+  }, [dispatch, error, history, deleteError, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Message ID", minWidth: 200, flex: 0.5 },
-
     {
       field: "fname",
       headerName: "First Name",

@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, databaseContent } from "../actions/databaseAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
@@ -14,7 +13,6 @@ import { useHistory } from "react-router-dom";
 
 const NewDatabase = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newDatabase);
@@ -27,16 +25,25 @@ const NewDatabase = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Service Created Successfully");
+      swal({
+        title: "Service Created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/database-consultancy");
       dispatch({ type: CREATE_DATABASE_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, error, history, success]);
 
   const createDatabaseSubmitHandler = (e) => {
     e.preventDefault();

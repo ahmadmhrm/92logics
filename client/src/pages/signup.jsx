@@ -6,13 +6,11 @@ import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, register } from "../actions/userAction";
-import { useAlert } from "react-alert";
 import Loader from "../components/loader";
 import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, loading, isAuthenticated } = useSelector(
@@ -60,10 +58,25 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    if (error) {
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
+      dispatch(clearErrors());
+    }
+
     if (isAuthenticated) {
+      swal({
+        title: "User Register Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/profile");
     }
-  }, [alert, error, history, isAuthenticated]);
+  }, [error, history, isAuthenticated]);
 
   return (
     <>

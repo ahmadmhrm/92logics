@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
@@ -12,7 +11,6 @@ import { clearErrors, reasonContent } from "../actions/reasonAction";
 
 const NewReason = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newReason);
@@ -21,12 +19,21 @@ const NewReason = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Content Created Successfully");
+      swal({
+        title: "Content Created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: CREATE_REASON_RESET });
     }

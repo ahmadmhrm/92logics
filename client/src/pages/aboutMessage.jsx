@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
@@ -14,7 +13,6 @@ import { clearErrors, createAboutMessage } from "../actions/aboutMessageAction";
 
 const AboutMessage = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newMessage);
@@ -25,16 +23,25 @@ const AboutMessage = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Content Created Successfully");
+      swal({
+        title: "Content Created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/about");
       dispatch({ type: ABOUT_MESSAGE_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, error, history, success]);
 
   const aboutMessageSubmitHandler = (e) => {
     e.preventDefault();

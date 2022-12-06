@@ -12,7 +12,6 @@ import { getAllReason, deleteReason } from "../actions/reasonAction";
 import { getAllFeatures, deleteFeature } from "../actions/featureAction";
 import { getAllSkills, deleteSkill } from "../actions/skillAction";
 import { getAllFaqs, deleteFaq } from "../actions/faqAction";
-import { useAlert } from "react-alert";
 import { IconButton } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -31,7 +30,6 @@ import { useState } from "react";
 
 const About = ({ className }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const [toggle, setToggle] = useState(false);
 
   const togleAccordition = (index) => {
@@ -78,67 +76,126 @@ const About = ({ className }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      swal({
+        title: "Error Found!",
+        text: deleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (featureDeleteError) {
-      alert.error(featureDeleteError);
+      swal({
+        title: "Error Found!",
+        text: featureDeleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (skillDeleteError) {
-      alert.error(skillDeleteError);
+      swal({
+        title: "Error Found!",
+        text: skillDeleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (faqDeleteError) {
-      alert.error(faqDeleteError);
+      swal({
+        title: "Error Found!",
+        text: faqDeleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (messageDeleteError) {
-      alert.error(messageDeleteError);
+      swal({
+        title: "Error Found!",
+        text: messageDeleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (techDeleteError) {
-      alert.error(techDeleteError);
+      swal({
+        title: "Error Found!",
+        text: techDeleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Reason Deleted Successfully");
+      swal({
+        title: "Reason Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_REASON_RESET });
     }
 
     if (featureIsDeleted) {
-      alert.success("Feature Deleted Successfully");
+      swal({
+        title: "Feature Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_FEATURE_RESET });
     }
 
     if (skillIsDeleted) {
-      alert.success("Skill Deleted Successfully");
+      swal({
+        title: "Skill Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_SKILL_RESET });
     }
 
     if (faqIsDeleted) {
-      alert.success("FAQ Deleted Successfully");
+      swal({
+        title: "FAQ Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_FAQ_RESET });
     }
 
     if (messageIsDeleted) {
-      alert.success("Content Deleted Successfully");
+      swal({
+        title: "Content Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_ABOUT_MESSAGE_RESET });
     }
 
     if (techIsDeleted) {
-      alert.success("Content Deleted Successfully");
+      swal({
+        title: "Content Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_TECH_CONTENT_RESET });
     }
 
@@ -151,7 +208,6 @@ const About = ({ className }) => {
     dispatch(getAllFaqs());
   }, [
     dispatch,
-    alert,
     error,
     deleteError,
     history,

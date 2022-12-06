@@ -6,7 +6,6 @@ import {
   getDatabaseDetails,
   updateDatabase,
 } from "../actions/databaseAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -18,7 +17,6 @@ import Navbar from "../components/navbar";
 
 const UpdateDatabase = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, databaseDetail } = useSelector(
@@ -49,17 +47,31 @@ const UpdateDatabase = ({ match }) => {
     }
 
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Service Updated Successfully");
+      swal({
+        title: "Service Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/database-consultancy");
       dispatch({ type: UPDATE_DATABASE_RESET });
     }

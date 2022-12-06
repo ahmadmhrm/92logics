@@ -5,15 +5,14 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, loadUser } from "../actions/userAction";
-import { useAlert } from "react-alert";
 import { UPDATE_PROFILE_RESET } from "../constants/userConstant";
 import MetaData from "../components/MetaData";
 import { useHistory } from "react-router-dom";
 import Navbar from "../components/navbar";
+import swal from "sweetalert";
 
 const UpdateProfile = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { user } = useSelector((state) => state.user);
@@ -56,12 +55,21 @@ const UpdateProfile = () => {
     }
 
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Profile Updated Successfully");
+      swal({
+        title: "Profile Update Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch(loadUser());
 
       history.push("/profile");
@@ -70,7 +78,7 @@ const UpdateProfile = () => {
         type: UPDATE_PROFILE_RESET,
       });
     }
-  }, [dispatch, error, alert, history, user, isUpdated]);
+  }, [dispatch, error, swal, history, user, isUpdated]);
   return (
     <Fragment>
       {loading ? (
@@ -107,6 +115,7 @@ const UpdateProfile = () => {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled
                   />
                 </div>
 

@@ -136,15 +136,7 @@ exports.updateProfile = async (req, res) => {
   try {
     const newData = {
       name: req.body.name,
-      email: req.body.email,
     };
-
-    const { email } = req.body;
-    const userExist = await User.findOne({ email: email });
-
-    if (userExist) {
-      return res.status(422).json({ message: "Email Already Exist" });
-    }
 
     if (req.body.avatar !== "") {
       const user = await User.findById(req.user.id);
@@ -210,7 +202,6 @@ exports.updateRole = async (req, res) => {
   try {
     const newData = {
       name: req.body.name,
-      email: req.body.email,
       role: req.body.role,
     };
 

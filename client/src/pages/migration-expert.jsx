@@ -10,7 +10,6 @@ import MetaData from "../components/MetaData";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllMigrations } from "../actions/migrationAction";
-import { useAlert } from "react-alert";
 import Migration from "../components/migration";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 const MigrationExpert = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const { migrations } = useSelector((state) => state.allMigration);
 
@@ -55,9 +53,20 @@ const MigrationExpert = () => {
         </Carousel>
       </Screen>
       <div className="close_btn">
-        <Link to="/" transition="scale" className="slide-close-button">
+        <Link to="/services" transition="scale" className="slide-close-button">
           <IconButton>
             <img src={Close} alt="close" />
+          </IconButton>
+        </Link>
+      </div>
+      <div className="back_btn">
+        <Link
+          to="/services"
+          transition="glide-right"
+          className="slide-close-button"
+        >
+          <IconButton>
+            <img src="/assets/back.png" alt="close" />
           </IconButton>
         </Link>
       </div>

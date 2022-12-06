@@ -10,7 +10,6 @@ import Close from "../svgs/close.svg";
 import MetaData from "../components/MetaData";
 import Develop from "../components/develop";
 import { getAllWebs } from "../actions/webAction";
-import { useAlert } from "react-alert";
 
 const useStyles = makeStyles((theme) => ({
   screen: {
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 const WebsiteDevelopment = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const alert = useAlert();
 
   const { webs } = useSelector((state) => state.allWeb);
 
@@ -52,9 +50,23 @@ const WebsiteDevelopment = () => {
         </Carousel>
       </Screen>
       <div className="close_btn">
-        <Link to="/" transition="scale" className="slide-close-button">
+        <Link to="/services" transition="scale" className="slide-close-button">
           <IconButton>
             <img src={Close} alt="close" />
+          </IconButton>
+        </Link>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div className="back_btn">
+        <Link
+          to="/services"
+          transition="glide-right"
+          className="slide-close-button"
+        >
+          <IconButton>
+            <img src="/assets/back.png" alt="close" />
           </IconButton>
         </Link>
       </div>

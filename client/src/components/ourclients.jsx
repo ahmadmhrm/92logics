@@ -9,11 +9,9 @@ import Facebook from "../svgs/facebook.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, getReviews } from "../actions/reviewAction";
 import Loader from "./loader";
-import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 
 const Ourclients = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +26,12 @@ const Ourclients = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
     dispatch(getReviews(currentPage));

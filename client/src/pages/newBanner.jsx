@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, bannerContent } from "../actions/bannerAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
@@ -14,7 +13,6 @@ import { useHistory } from "react-router-dom";
 
 const NewBanner = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newBanner);
@@ -27,16 +25,14 @@ const NewBanner = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Banner Created Successfully");
       history.push("/");
       dispatch({ type: CREATE_BANNER_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, error, history, success]);
 
   const createBannerSubmitHandler = (e) => {
     e.preventDefault();

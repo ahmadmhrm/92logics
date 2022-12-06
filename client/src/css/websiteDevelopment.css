@@ -90,6 +90,15 @@
   right: 10px;
 }
 
+.back_btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.back_btn img{
+  width: 30px;
+}
+
 .c_more_link {
   text-decoration: none;
   letter-spacing: 0.5px;

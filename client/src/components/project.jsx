@@ -10,12 +10,10 @@ import {
 import { NEW_REVIEW_RESET } from "../constants/reviewConstant";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, newReview } from "../actions/reviewAction";
-import { useAlert } from "react-alert";
 import { useHistory } from "react-router-dom";
 
 const Project = ({ project }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const [open, setOpen] = useState(false);
@@ -62,12 +60,21 @@ const Project = ({ project }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Review Created Successfully");
+      swal({
+        title: "Review Created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/");
       dispatch({ type: NEW_REVIEW_RESET });
       setOpen(false);

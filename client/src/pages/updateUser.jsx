@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
@@ -15,7 +14,6 @@ import { useHistory } from "react-router-dom";
 
 const UpdateUser = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, user } = useSelector((state) => state.userDetails);
@@ -41,17 +39,31 @@ const UpdateUser = ({ match }) => {
       setRole(user.role);
     }
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
+      swal({
+        title: "Error Found!",
+        text: updateError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("User Updated Successfully");
+      swal({
+        title: "User Updated Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       history.push("/admin/users");
       dispatch({ type: UPDATE_USER_RESET });
     }
@@ -103,6 +115,7 @@ const UpdateUser = ({ match }) => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  disabled
                 />
               </div>
 

@@ -3,7 +3,6 @@ import "../css/updatePassword.css";
 import Loader from "../components/loader";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updatePassword } from "../actions/userAction";
-import { useAlert } from "react-alert";
 import { UPDATE_PASSWORD_RESET } from "../constants/userConstant";
 import MetaData from "../components/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
@@ -11,10 +10,10 @@ import LockIcon from "@material-ui/icons/Lock";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useHistory } from "react-router-dom";
 import Navbar from "../components/navbar";
+import swal from "sweetalert";
 
 const UpdatePassword = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
@@ -37,12 +36,21 @@ const UpdatePassword = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Password Updated Successfully");
+      swal({
+        title: "Password Update Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
 
       history.push("/profile");
 
@@ -50,7 +58,7 @@ const UpdatePassword = () => {
         type: UPDATE_PASSWORD_RESET,
       });
     }
-  }, [dispatch, error, alert, history, isUpdated]);
+  }, [dispatch, error, swal, history, isUpdated]);
 
   return (
     <Fragment>

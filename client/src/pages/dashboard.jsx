@@ -60,7 +60,7 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              {users && users.length}
+              {messages && messages.length}
               <br />
               Total Clients
             </p>

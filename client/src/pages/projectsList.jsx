@@ -8,7 +8,6 @@ import {
   deleteProject,
 } from "../actions/projectAction";
 import { Link, useHistory } from "react-router-dom";
-import { useAlert } from "react-alert";
 import { IconButton } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import EditIcon from "@material-ui/icons/Edit";
@@ -20,7 +19,6 @@ import { DELETE_PROJECT_RESET } from "../constants/projectConstant";
 const ProjectsList = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const alert = useAlert();
   const [sidebar, setSidebar] = useState(false);
 
   const { error, projects } = useSelector((state) => state.projects);
@@ -35,26 +33,38 @@ const ProjectsList = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (deleteError) {
-      alert.error(deleteError);
+      swal({
+        title: "Error Found!",
+        text: deleteError,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (isDeleted) {
-      alert.success("Project Deleted Successfully");
+      swal({
+        title: "Product Deleted Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
       dispatch({ type: DELETE_PROJECT_RESET });
     }
 
     dispatch(getAllAdminProjects());
-  }, [dispatch, alert, error, history, deleteError, isDeleted]);
+  }, [dispatch, swal, error, history, deleteError, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Project ID", minWidth: 150, flex: 0.3 },
-
     {
       field: "name",
       headerName: "Name",

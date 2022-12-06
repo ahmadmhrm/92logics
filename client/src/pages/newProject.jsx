@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../css/newProject.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, createProject } from "../actions/projectAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import Navbar from "../components/navbar";
@@ -13,10 +12,10 @@ import LinkIcon from "@material-ui/icons/Link";
 import Sidebar from "../components/sidebar";
 import { NEW_PROJECT_RESET } from "../constants/projectConstant";
 import { useHistory } from "react-router-dom";
+import swal from "sweetalert";
 
 const NewProject = () => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { loading, error, success } = useSelector((state) => state.newProject);
@@ -32,16 +31,25 @@ const NewProject = () => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      swal({
+        title: "Error Found!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Project Created Successfully");
-      history.push("/admin/dashboard");
+      swal({
+        title: "Product created Successfully!",
+        icon: "success",
+        button: "Okay",
+      });
+      history.push("/admin/projects");
       dispatch({ type: NEW_PROJECT_RESET });
     }
-  }, [dispatch, alert, error, history, success]);
+  }, [dispatch, swal, error, history, success]);
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();

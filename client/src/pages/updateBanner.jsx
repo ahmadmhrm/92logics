@@ -6,7 +6,6 @@ import {
   getBannerDetails,
   updateBanner,
 } from "../actions/bannerAction";
-import { useAlert } from "react-alert";
 import { Button } from "@material-ui/core";
 import MetaData from "../components/MetaData";
 import SpellcheckIcon from "@material-ui/icons/Spellcheck";
@@ -18,7 +17,6 @@ import Navbar from "../components/navbar";
 
 const UpdateBanner = ({ match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
   const history = useHistory();
 
   const { error, bannerDetail } = useSelector((state) => state.bannerDetails);
@@ -47,23 +45,19 @@ const UpdateBanner = ({ match }) => {
     }
 
     if (error) {
-      alert.error(error);
       dispatch(clearErrors());
     }
 
     if (updateError) {
-      alert.error(updateError);
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-      alert.success("Banner Updated Successfully");
       history.push("/");
       dispatch({ type: UPDATE_BANNER_RESET });
     }
   }, [
     dispatch,
-    alert,
     error,
     history,
     isUpdated,
