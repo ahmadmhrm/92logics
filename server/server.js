@@ -19,5 +19,5 @@ cloudinary.config({
 
 // app listen
 app.listen(PORT, () => {
-  console.log(`server is listing on PORT: ${PORT}`);
+  console.log(`Server is listing on PORT: ${PORT}`);
 });

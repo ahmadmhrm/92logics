@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-// config
-dotenv.config({ path: "config/config.env" });
 
+dotenv.config({ path: "config/config.env" });
 const DB_URL = process.env.DB_URL;
 
 const connectDatabase = () => {
@@ -12,7 +11,7 @@ const connectDatabase = () => {
       useUnifiedTopology: true,
     })
     .then((data) => {
-      console.log(`Database is connected: ${data.connection.host}`);
+      console.log(`Database is connected with: ${data.connection.host}`);
     })
     .catch((error) => {
       console.log(`Database connection error: ${error}`);
