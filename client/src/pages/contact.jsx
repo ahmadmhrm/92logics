@@ -16,6 +16,8 @@ const Contact = () => {
     (state) => state.createMessage
   );
 
+  const { isAuthenticated } = useSelector((state) => state.user);
+
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +34,16 @@ const Contact = () => {
     myForm.set("email", email);
     myForm.set("phone", phone);
     myForm.set("message", message);
-    dispatch(createMessage(myForm));
+    if (isAuthenticated) {
+      dispatch(createMessage(myForm));
+    } else {
+      swal({
+        title: "Please Login to Send Message!",
+        text: error,
+        icon: "error",
+        button: "Okay",
+      });
+    }
   };
 
   useEffect(() => {
@@ -165,7 +176,6 @@ const Contact = () => {
                   <div className="form-group">
                     <textarea
                       name="message"
-                      id=""
                       placeholder="Write your message"
                       onChange={(e) => setMessage(e.target.value)}
                       value={message}
